@@ -9,6 +9,24 @@ struct ColonyCandidate
     double brightness;
 };
 
+void PrintByValue(ColonyCandidate colony)
+{
+    std::cout << colony.brightness << '\n';
+}
+
+void PrintByReference(const ColonyCandidate& colony)
+{
+    std::cout << colony.brightness << '\n';
+}
+
+void PrintByPointer(const ColonyCandidate* colony)
+{
+    if (colony != nullptr)
+    {
+        std::cout << colony->brightness << '\n';
+    }
+}
+
 int main()
 {
     const std::vector<ColonyCandidate> colonies
@@ -18,6 +36,12 @@ int main()
         { 443, 67, 46, 168.5 },
         { 1135, 152, 52, 165.3 }
     };
+
+    PrintByValue(colonies[0]);
+
+    PrintByReference(colonies[0]);
+
+    PrintByPointer(&colonies[0]);
 
     constexpr double minimumBrightness = 170.0;
 
